@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat app</title>
+    <link href="/output.css" rel="stylesheet">
+		<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+		<script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="grid place-items-center h-screen w-screen">
+		<form ws-send hx-ext="ws" ws-connect="ws://217.215.4.238:3000" class="w-[414px] h-[896px] flex flex-col rounded-xl border-2 border-gray-500">
+      <div class="flex flex-col text-2xl">
+				<h1 class="text-center font-bold uppercase p-8 bg-blue-500 text-white rounded-t-lg">Raskovs Chat Room</h1>
+			</div>
+			<div id="newmessage" class='flex flex-col p-4 m-4 rounded-md flex-grow overflow-y-scroll'>
+			</div>
+      <div class="w-100 m-4 mt-auto">
+        <div class="flex gap-2 items-center">
+          <input class="text-slate-600 font-bold uppercase border-b-2 border-gray-500 my-2" style="width: 128px;" name="username" value="guest"/>
+          <span class="text-gray-700 material-symbols-outlined">edit</span>
+        </div>
+        <div class="flex gap-4">
+          <input id="message" name="message" class="flex-grow p-2 border border-black rounded-md" />
+          <button class="grid place-items-center bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-md transition-all" type="submit"><span class="material-symbols-outlined">send</span></button>
+        </div>	
+      </div>
+		</form>
+  </body>
+</html>
